@@ -14,6 +14,7 @@ func SetupRoutes() *mux.Router {
 	r.HandleFunc("/register", handlers.RegisterHandler).Methods("POST")
 	r.HandleFunc("/currency", services.CurrencyHandler).Methods("GET")
 	r.HandleFunc("/users", handlers.Getusers).Methods("GET")
+	r.HandleFunc("/convert", services.CurrencyHandler).Methods("GET")
 
 	return r
 }
