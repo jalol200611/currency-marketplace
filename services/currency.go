@@ -1,14 +1,21 @@
 package services
 
 import (
+	"currency/database"
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
+// type Currency struct {
+// }
+
 type CurrencyRequest struct {
-	From   string  `json:"from"`
-	To     string  `json:"to"`
-	Amount float64 `json:"amount"`
+	UserId  int     `json:"user_id"`
+	FromId  int     `json:"from"`
+	ToId    int     `json:"to"`
+	Balance float64 `json:"balance"`
+	Amount  float64 `json:"amount"`
 }
 
 type CurrencyResponse struct {
@@ -21,40 +28,49 @@ func CurrencyHandler(w http.ResponseWriter, r *http.Request) {
 
 	err := json.NewDecoder(r.Body).Decode(&req)
 	if err != nil {
-		http.Error(w, "Invalid JSON", http.StatusBadRequest)
+		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
 
-	var result float64
-
-	switch {
-	case req.From == "USD" && req.To == "RUB":
-		result = req.Amount * 90
-
-	case req.From == "RUB" && req.To == "USD":
-		result = req.Amount / 90
-
-	case req.From == "USD" && req.To == "EUR":
-		result = req.Amount * 0.92
-
-	case req.From == "EUR" && req.To == "USD":
-		result = req.Amount / 0.92
-
-	default:
-		http.Error(w, "Неподдерживаемая валюта", http.StatusBadRequest)
-		return
-	}
-
-	data := CurrencyResponse{
-		Result: result,
-	}
-
+	var balance float64
+	database.DB.Raw("SELECT balance FROM users WHERE id = ?", req.UserId).Scan(&balance)
+	fmt.Printf("User balance: %f\n", balance)
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(data)
+
+	// Проверяем, достаточно ли средств для конвертации
+	if balance < req.Amount {
+		http.Error(w, "Недостаточно средств для конвертации", http.StatusBadRequest)
+		return
+	}
+
+	var coefficient float64
+
+	database.DB.Raw(
+		"SELECT coefficient FROM exchanges_values WHERE from_id = ? AND to_id = ?",
+		req.FromId,
+		req.ToId,
+	).Scan(&coefficient)
+	fmt.Printf("Exchange coefficient: %f\n", coefficient)
+
+	result := req.Amount * coefficient
+	fmt.Printf("Converted amount: %f\n", result)
+
+	balance -= req.Amount
+	database.DB.Exec(
+		"UPDATE users SET balance = ? WHERE id = ?",
+		balance,
+		req.UserId,
+	)
+
+	fmt.Printf("Updated user balance: %f\n", balance)
+
+	response := CurrencyResponse{Result: result}
+	json.NewEncoder(w).Encode(response)
 }
 
-// {
-//   "from": "USD",
-//   "to": "RUB",				//Пример конвертации валюты из USD в RUB
-//   "amount": 100
+// { Пример запроса на конвертацию валюты:
+//   "user_id": 1,
+//   "from": 1,
+//   "to": 2,
+//   "amount": 145
 // }
