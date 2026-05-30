@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Currency Exchange</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- NOTIFICATION -->
+
+    <div id="notification"></div>
+
+    <!-- MAIN -->
+
+    <div class="container">
+      <h1>Currency Exchange</h1>
+
+      <!-- REGISTER -->
+
+      <div class="card">
+        <h2>Регистрация</h2>
+
+        <input type="text" id="registerFirstName" placeholder="First Name" />
+
+        <input type="text" id="registerLastName" placeholder="Last Name" />
+
+        <input type="email" id="registerEmail" placeholder="Email" />
+
+        <input type="text" id="registerPhone" placeholder="Phone" />
+
+        <input type="password" id="registerPassword" placeholder="Password" />
+
+        <button onclick="registerUser()">Регистрация</button>
+      </div>
+
+      <!-- LOGIN -->
+
+      <div class="card">
+        <h2>Войти</h2>
+
+        <input type="email" id="loginEmail" placeholder="Email" />
+
+        <input type="password" id="loginPassword" placeholder="Password" />
+
+        <button onclick="loginUser()">Войти</button>
+      </div>
+
+      <!-- THEME -->
+
+      <button onclick="toggleTheme()" class="theme-btn">🌙 / ☀️</button>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

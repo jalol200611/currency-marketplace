@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Главная</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="notification"></div>
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+      <div id="walletInfo">
+        <h2 id="userInfo"></h2>
+
+        <div id="balances"></div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="dashboard.html"> Главная </a>
+
+        <a href="market.html"> Маркет </a>
+
+        <a href="create-order.html"> Создать ордер </a>
+
+        <a href="profile.html"> Профиль </a>
+        <button onclick="toggleTheme()" class="theme-btn">🌙 / ☀️</button>
+        <button onclick="logout()" class="logout-btn">Выйти</button>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+
+    <div class="container">
+      <h1>Главная</h1>
+      <div class="card" id="ratesCard">
+        <span></span>
+        <h2>📈 Курсы валют</h2>
+
+        <div id="rates"></div>
+      </div>
+      <!-- TOP UP -->
+
+      <div class="card">
+        <h2>Пополнить баланс</h2>
+        <div class="bank-card">
+          <div class="card-top">
+            <span> 💳 VISA </span>
+          </div>
+
+          <div class="card-number" id="previewCardNumber">
+            0000 0000 0000 0000
+          </div>
+
+          <div class="card-bottom">
+            <div>
+              <small> CARD HOLDER </small>
+
+              <p id="previewCardName">YOUR NAME</p>
+            </div>
+
+            <div>
+              <small> EXPIRES </small>
+
+              <p id="previewCardDate">00/00</p>
+            </div>
+          </div>
+        </div>
+        <input type="text" id="cardNumber" placeholder="Номер карты" />
+
+        <input type="text" id="cardName" placeholder="Имя владельца" />
+
+        <div class="card-row">
+          <input type="text" id="cardDate" placeholder="MM/YY" />
+
+          <input type="password" id="cardCvv" placeholder="CVV" />
+        </div>
+
+        <select id="topupCurrencyId">
+          <option value="1">🇺🇸 USD</option>
+
+          <option value="2">🇪🇺 EUR</option>
+
+          <option value="3">🇷🇺 RUB</option>
+        </select>
+
+        <input type="number" id="topupAmount" placeholder="Сумма" />
+
+        <button onclick="topUp()">Пополнить</button>
+      </div>
+      <!-- CONVERT -->
+
+      <div class="card">
+        <h2>Конвертировать валюту</h2>
+
+        <select id="fromCurrency">
+          <option value="1">🇺🇸 USD</option>
+
+          <option value="2">🇪🇺 EUR</option>
+
+          <option value="3">🇷🇺 RUB</option>
+        </select>
+
+        <select id="toCurrency">
+          <option value="1">🇺🇸 USD</option>
+
+          <option value="2">🇪🇺 EUR</option>
+
+          <option value="3">🇷🇺 RUB</option>
+        </select>
+
+        <input type="number" id="convertAmount" placeholder="Сумма" />
+
+        <button onclick="convertCurrency()">Конвертировать</button>
+      </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>

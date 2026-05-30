@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Маркет</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="notification"></div>
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+      <div id="walletInfo">
+        <h2 id="userInfo"></h2>
+
+        <div id="balances"></div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="dashboard.html"> Главная </a>
+
+        <a href="market.html"> Маркет </a>
+
+        <a href="create-order.html"> Создать ордер </a>
+
+        <a href="profile.html"> Профиль </a>
+        <button onclick="toggleTheme()" class="theme-btn">🌙 / ☀️</button>
+        <button onclick="logout()" class="logout-btn">Выйти</button>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+
+    <div class="container">
+      <h1>Маркет</h1>
+
+      <!-- TABLE -->
+
+      <table class="market-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Продавец</th>
+            <th>Продаёт</th>
+            <th>Покупает</th>
+            <th>Количество</th>
+            <th>Цена</th>
+            <th>Действие</th>
+          </tr>
+        </thead>
+
+        <tbody id="orders"></tbody>
+      </table>
+
+      <!-- BUY ORDER -->
+
+      <!-- <div class="card">
+        <h2>Купить ордер</h2>
+
+        <input type="number" id="orderId" placeholder="ID ордера" />
+
+        <button onclick="buyMarketOrder()">Купить ордер</button>
+      </div> -->
+    </div>
+    <!-- PASSWORD MODAL -->
+
+    <div id="passwordModal" class="modal">
+      <div class="modal-content">
+        <h2>🔐 Подтверждение</h2>
+
+        <p id="modalText">Введите пароль</p>
+
+        <input type="password" id="modalPassword" placeholder="Пароль" />
+
+        <div class="modal-buttons">
+          <button onclick="closePasswordModal()" class="logout-btn">
+            Отмена
+          </button>
+
+          <button onclick="confirmPassword()">Подтвердить</button>
+        </div>
+      </div>
+    </div>
+    <script src="market.js"></script>
+  </body>
+</html>

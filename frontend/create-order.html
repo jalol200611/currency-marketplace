@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Создать ордер</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="notification"></div>
+    <div class="navbar">
+      <div id="walletInfo">
+        <h2 id="userInfo">User</h2>
+
+        <div id="balances"></div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="profile.html">Профиль</a>
+        <a href="dashboard.html"> Главная </a>
+
+        <a href="market.html"> Рынок </a>
+
+        <a href="create-order.html"> Создать ордер </a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>Создать ордер</h1>
+      <!-- 
+      <input type="number" id="sellerId" placeholder="Seller ID" /> -->
+
+      <select id="sellCurrency">
+        <option value="1">🇺🇸 USD</option>
+
+        <option value="2">🇪🇺 EUR</option>
+
+        <option value="3">🇷🇺 RUB</option>
+      </select>
+
+      <select id="buyCurrency">
+        <option value="1">🇺🇸 USD</option>
+
+        <option value="2">🇪🇺 EUR</option>
+
+        <option value="3">🇷🇺 RUB</option>
+      </select>
+
+      <input type="number" id="marketAmount" placeholder="Сумма" />
+
+      <input type="number" id="marketPrice" placeholder="Цена" />
+
+      <button onclick="createMarketOrder()">Создать ордер</button>
+    </div>
+
+    <script src="create-order.js"></script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Профиль</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="notification"></div>
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+      <div id="walletInfo">
+        <h2 id="userInfo"></h2>
+
+        <p id="email"></p>
+
+        <div id="balances"></div>
+      </div>
+
+      <div class="nav-buttons">
+        <a href="dashboard.html"> Главная </a>
+
+        <a href="market.html"> Маркет </a>
+
+        <a href="create-order.html"> Создать ордер </a>
+
+        <a href="profile.html"> Профиль </a>
+        <button onclick="toggleTheme()" class="theme-btn">🌙 / ☀️</button>
+        <button onclick="logout()" class="logout-btn">Выйти</button>
+      </div>
+    </div>
+
+    <!-- PROFILE -->
+
+    <div class="container">
+      <h1>Профиль</h1>
+
+      <!-- INFO -->
+
+      <div class="card">
+        <h2>Информация</h2>
+
+        <p id="profileId"></p>
+
+        <p id="profileName"></p>
+
+        <p id="profileEmail"></p>
+      </div>
+
+      <!-- WALLETS -->
+
+      <div class="card">
+        <h2>💰 Общий баланс</h2>
+
+        <h1 id="totalBalance">$0</h1>
+      </div>
+
+      <div class="card">
+        <h2>Кошельки</h2>
+
+        <div id="wallets"></div>
+      </div>
+      <!-- TRANSACTIONS -->
+
+      <div class="card">
+        <h2>История транзакций</h2>
+
+        <div id="transactions"></div>
+      </div>
+    </div>
+
+    <script src="profile.js"></script>
+  </body>
+</html>

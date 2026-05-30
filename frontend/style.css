@@ -1,0 +1,712 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #020b24, #081b48, #102a6d);
+  color: white;
+  font-family: Arial, sans-serif;
+
+  transition: 0.3s;
+}
+
+/* LIGHT MODE */
+
+.light-mode {
+  background: #f5f5f5;
+  color: black;
+}
+
+.light-mode .card {
+  background: white;
+  color: black;
+}
+
+.light-mode .navbar {
+  background: white;
+}
+
+.light-mode input,
+.light-mode select {
+  background: #eee;
+  color: black;
+}
+
+.light-mode input::placeholder {
+  color: #444;
+}
+
+.light-mode .market-table {
+  background: white;
+  color: black;
+}
+
+.light-mode .market-table th {
+  background: #eee;
+  color: black;
+}
+
+.light-mode .market-table td {
+  color: black;
+}
+
+.light-mode #walletInfo {
+  background: #eee;
+  color: black;
+}
+
+.light-mode .nav-buttons a {
+  color: black;
+}
+
+.light-mode .nav-buttons a:hover {
+  color: #3366ff;
+}
+
+.light-mode h1,
+.light-mode h2,
+.light-mode p,
+.light-mode td,
+.light-mode th {
+  color: black;
+}
+
+/* NAVBAR */
+
+.navbar {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  padding: 30px 80px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.nav-buttons a {
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 22px;
+
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.nav-buttons a:hover {
+  color: #4f7cff;
+}
+
+/* WALLET */
+
+#walletInfo {
+  background: rgba(255, 255, 255, 0.05);
+
+  padding: 20px;
+
+  border-radius: 15px;
+
+  min-width: 250px;
+}
+
+#walletInfo h2 {
+  margin-bottom: 20px;
+}
+
+#walletInfo p {
+  margin-bottom: 12px;
+
+  font-size: 18px;
+}
+
+/* CONTAINER */
+
+.container {
+  width: 900px;
+
+  margin: 50px auto;
+}
+
+.container h1 {
+  font-size: 60px;
+
+  margin-bottom: 30px;
+}
+
+/* CARD */
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  margin-bottom: 30px;
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  transition: 0.3s;
+}
+
+.card h2 {
+  margin-bottom: 20px;
+
+  font-size: 36px;
+}
+
+/* INPUTS */
+
+input,
+select {
+  width: 100%;
+
+  padding: 16px;
+
+  margin-bottom: 15px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  color: white;
+
+  font-size: 18px;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* BUTTONS */
+
+button {
+  width: 100%;
+
+  padding: 16px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #3366ff;
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #4f7cff;
+}
+
+/* LOGOUT */
+
+.logout-btn {
+  background: #ff2f2f;
+}
+
+.logout-btn:hover {
+  background: #ff4b4b;
+}
+
+/* THEME BUTTON */
+
+.theme-btn {
+  background: #444;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px 20px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-size: 18px;
+}
+
+/* MARKET TABLE */
+
+.market-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin-bottom: 30px;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border-radius: 15px;
+
+  overflow: hidden;
+}
+
+.market-table th {
+  background: rgba(255, 255, 255, 0.1);
+
+  padding: 18px;
+
+  text-align: left;
+
+  font-size: 18px;
+}
+
+.market-table td {
+  padding: 16px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  font-size: 16px;
+}
+
+.market-table tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* NOTIFICATION */
+
+#notification {
+  position: fixed;
+
+  top: 30px;
+
+  right: 30px;
+
+  background: #2ecc71;
+
+  color: white;
+
+  padding: 18px 28px;
+
+  border-radius: 12px;
+
+  font-size: 18px;
+
+  opacity: 0;
+
+  transform: translateY(-20px);
+
+  transition: 0.3s;
+
+  z-index: 9999;
+}
+
+#notification.show {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+/* CARD ROW */
+
+.card-row {
+  display: flex;
+
+  gap: 10px;
+}
+
+.card-row input {
+  width: 100%;
+}
+/* BANK CARD */
+
+.bank-card {
+  width: 100%;
+
+  height: 220px;
+
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+
+  border-radius: 25px;
+
+  padding: 30px;
+
+  margin-bottom: 25px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-top {
+  display: flex;
+
+  justify-content: flex-end;
+
+  font-size: 28px;
+
+  font-weight: bold;
+}
+
+.card-number {
+  margin-top: 50px;
+
+  font-size: 34px;
+
+  letter-spacing: 4px;
+
+  font-weight: bold;
+}
+
+.card-bottom {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-top: 40px;
+}
+
+.card-bottom small {
+  opacity: 0.7;
+
+  font-size: 12px;
+}
+
+.card-bottom p {
+  margin-top: 6px;
+
+  font-size: 18px;
+
+  font-weight: bold;
+}
+#ratesCard {
+  min-width: 280px;
+}
+
+#rates {
+  margin-top: 15px;
+}
+
+#rates p {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.rates-card {
+  margin-bottom: 30px;
+}
+
+.rates-grid {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.rate-box {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border-radius: 15px;
+  min-width: 220px;
+}
+
+.rate-box h3 {
+  margin-bottom: 10px;
+}
+
+.rate-value {
+  font-size: 28px;
+  font-weight: bold;
+}
+/* RATE CARDS */
+
+#rates {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.rate-card {
+  width: 220px;
+
+  padding: 20px;
+
+  border-radius: 18px;
+
+  background: linear-gradient(135deg, #111a38, #1d2d5e);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition: 0.3s;
+
+  cursor: pointer;
+}
+
+.rate-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 0 25px rgba(46, 204, 113, 0.3);
+}
+
+.rate-title {
+  font-size: 18px;
+
+  font-weight: bold;
+
+  margin-bottom: 15px;
+}
+
+.rate-price {
+  font-size: 38px;
+
+  font-weight: bold;
+
+  margin-bottom: 10px;
+}
+
+.rate-change {
+  font-size: 16px;
+
+  font-weight: bold;
+}
+
+.positive {
+  color: #2ecc71;
+}
+
+.rate-chart {
+  height: 50px;
+  margin-top: 15px;
+  position: relative;
+}
+
+.rate-chart span {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(transparent 60%, rgba(46, 204, 113, 0.15));
+
+  clip-path: polygon(
+    0% 80%,
+    10% 70%,
+    20% 75%,
+    30% 50%,
+    40% 60%,
+    50% 30%,
+    60% 40%,
+    70% 20%,
+    80% 35%,
+    90% 10%,
+    100% 0%
+  );
+
+  border-bottom: 2px solid #2ecc71;
+}
+
+/* FAKE GRAPH */
+
+.rate-chart {
+  margin-top: 15px;
+
+  height: 60px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.rate-chart span {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  background: linear-gradient(to top, rgba(46, 204, 113, 0.25), transparent);
+
+  clip-path: polygon(
+    0% 90%,
+    10% 80%,
+    20% 85%,
+    30% 55%,
+    40% 65%,
+    50% 35%,
+    60% 45%,
+    70% 25%,
+    80% 40%,
+    90% 10%,
+    100% 0%
+  );
+
+  border-bottom: 2px solid #2ecc71;
+}
+/* PASSWORD MODAL */
+
+.modal {
+  display: none;
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+.modal-content {
+  width: 400px;
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background: #111a38;
+
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+}
+
+.modal-buttons {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 20px;
+}
+/* TRANSACTION CARD */
+
+.transaction-card {
+  background: rgba(255, 255, 255, 0.06);
+
+  border-radius: 20px;
+
+  padding: 20px;
+
+  margin-bottom: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  transition: 0.3s;
+}
+
+.transaction-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 0 25px rgba(79, 124, 255, 0.2);
+}
+
+.transaction-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.transaction-type {
+  font-size: 22px;
+
+  font-weight: bold;
+}
+
+.transaction-time {
+  opacity: 0.7;
+
+  font-size: 14px;
+}
+
+.transaction-body {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 15px;
+}
+
+.transaction-body strong {
+  display: block;
+
+  margin-bottom: 8px;
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+
+    padding: 20px;
+  }
+
+  .nav-buttons {
+    width: 100%;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .container h1 {
+    font-size: 40px;
+  }
+
+  .card h2 {
+    font-size: 24px;
+  }
+
+  .market-table {
+    font-size: 12px;
+  }
+
+  .market-table th,
+  .market-table td {
+    padding: 8px;
+  }
+
+  .transaction-body {
+    grid-template-columns: 1fr;
+  }
+
+  #rates {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    width: 100%;
+  }
+}
